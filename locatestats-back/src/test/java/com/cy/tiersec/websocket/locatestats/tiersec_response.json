@@ -1,0 +1,37 @@
+{
+  "UsrpCfg": {
+    "RxGain": 19,
+    "Network": 0,
+    "2g_params": {
+      "Arfcn": 540,
+      "Ulsc": 65,
+      "Dlsc": 2
+    },
+    "3g_params": {
+      "Arfcn": 10788,
+      "Ulsc": 8758542,
+      "Dlsc": 369
+    },
+    "4g_params": {
+      "Arfcn": 1400,
+      "Ulsc": 5,
+      "Dlsc": 0
+    },
+    "Alpha": 0.017,
+    "Slot": "0",
+    "Celltrack": 0,
+    "Watcher": 0,
+    "Mode": 0,
+    "Antenna": 0,
+    "GpsSrc": 1,
+    "Version": 3,
+    "App": 2,
+    "ScanUARFCN": "10788",
+    "ScanPSC": " ",
+    "UlScStart": 8000000,
+    "UlScEnd": 9000000,
+    "ScanULSC": " ",
+    "ScanTimeouts": " "
+  },
+  "Command": 0
+}
