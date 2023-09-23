@@ -24,7 +24,7 @@ public class UsrpCfg{
     public int watcher;
     @JsonProperty("Mode") 
     public int mode;
-    @JsonProperty("Antenna") 
+    @JsonProperty("Antenna")
     public int antenna;
     @JsonProperty("GpsSrc") 
     public int gpsSrc;
@@ -44,4 +44,30 @@ public class UsrpCfg{
     public String scanULSC;
     @JsonProperty("ScanTimeouts") 
     public String scanTimeouts;
+
+    @Override
+    public String toString() {
+        return "UsrpCfg{" +
+                "rxGain=" + rxGain +
+                ", network=" + network +
+                ", _2g_params=" + _2g_params +
+                ", _3g_params=" + _3g_params +
+                ", _4g_params=" + _4g_params +
+                ", alpha=" + alpha +
+                ", slot='" + slot + '\'' +
+                ", celltrack=" + celltrack +
+                ", watcher=" + watcher +
+                ", mode=" + mode +
+                ", antenna=" + antenna +
+                ", gpsSrc=" + gpsSrc +
+                ", version=" + version +
+                ", app=" + app +
+                ", scanUARFCN='" + scanUARFCN + '\'' +
+                ", scanPSC='" + scanPSC + '\'' +
+                ", ulScStart=" + ulScStart +
+                ", ulScEnd=" + ulScEnd +
+                ", scanULSC='" + scanULSC + '\'' +
+                ", scanTimeouts='" + scanTimeouts + '\'' +
+                '}';
+    }
 }

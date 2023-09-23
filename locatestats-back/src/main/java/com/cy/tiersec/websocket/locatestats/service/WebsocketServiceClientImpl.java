@@ -3,10 +3,10 @@ package com.cy.tiersec.websocket.locatestats.service;
 import com.cy.tiersec.websocket.locatestats.dto.addmany.request.AddManyRequestDto;
 import com.cy.tiersec.websocket.locatestats.dto.addmany.response.*;
 import com.cy.tiersec.websocket.locatestats.dto.websocket.CoordinatesDto;
+import com.cy.tiersec.websocket.locatestats.dto.websocket.Point;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
+@Service
 public class WebsocketServiceClientImpl implements WebsocketServiceClient{
     @Override
     public AddManyResponseDto getResponseDto(AddManyRequestDto dto) {
@@ -39,8 +39,10 @@ public class WebsocketServiceClientImpl implements WebsocketServiceClient{
 
     @Override
     public CoordinatesDto getResponseToSocket(AddManyRequestDto dto) {
-        CoordinatesDto coordinatesDto = new CoordinatesDto(dto.gpsExt.lat, dto.gpsExt.lon, new ArrayList<HashMap<String, Double>>());
-
-        return null;
+        return new CoordinatesDto(
+                dto.gpsExt.lat,
+                dto.gpsExt.lon,
+                dto.points.stream().map(p -> new Point(p.sNR, p.rSSI)).toList()
+        );
     }
 }

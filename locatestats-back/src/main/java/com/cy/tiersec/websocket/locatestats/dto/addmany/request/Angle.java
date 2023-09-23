@@ -26,7 +26,7 @@ public class Angle{
     @JsonProperty("Int_s") 
     public double int_s;
     @JsonProperty("Int") 
-    public double int;
+    public double _int;
     @JsonProperty("Ant") 
     public int ant;
     @JsonProperty("RxGain") 

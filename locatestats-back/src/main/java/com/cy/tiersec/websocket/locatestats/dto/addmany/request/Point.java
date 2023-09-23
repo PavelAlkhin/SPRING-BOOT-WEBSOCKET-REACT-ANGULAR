@@ -1,6 +1,8 @@
 package com.cy.tiersec.websocket.locatestats.dto.addmany.request; 
-import com.fasterxml.jackson.annotation.JsonProperty; 
-import java.util.List; 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 public class Point{
     @JsonProperty("Id") 
     public int id;

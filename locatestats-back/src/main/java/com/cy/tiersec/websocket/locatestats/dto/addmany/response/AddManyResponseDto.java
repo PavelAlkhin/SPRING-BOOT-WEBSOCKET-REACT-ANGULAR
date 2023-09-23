@@ -8,4 +8,12 @@ public class AddManyResponseDto {
     public UsrpCfg usrpCfg;
     @JsonProperty("Command") 
     public int command;
+
+    @Override
+    public String toString() {
+        return "AddManyResponseDto{" +
+                "usrpCfg=" + usrpCfg +
+                ", command=" + command +
+                '}';
+    }
 }
