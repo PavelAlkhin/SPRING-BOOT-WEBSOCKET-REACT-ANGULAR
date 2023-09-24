@@ -3,11 +3,10 @@ package com.cy.tiersec.websocket.locatestats.service;
 import com.cy.tiersec.websocket.locatestats.dto.addmany.request.AddManyRequestDto;
 import com.cy.tiersec.websocket.locatestats.dto.addmany.response.*;
 import com.cy.tiersec.websocket.locatestats.dto.websocket.CoordinatesDto;
-import com.cy.tiersec.websocket.locatestats.dto.websocket.Point;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WebsocketServiceClientImpl implements WebsocketServiceClient{
+public class WebsocketServiceClientImpl implements WebsocketServiceClient {
     @Override
     public AddManyResponseDto getResponseDto(AddManyRequestDto dto) {
         return AddManyResponseDto.builder()
@@ -39,10 +38,25 @@ public class WebsocketServiceClientImpl implements WebsocketServiceClient{
 
     @Override
     public CoordinatesDto getResponseToSocket(AddManyRequestDto dto) {
+
+        double avSNR = 0.0, avRSSI = 0.0;
+
+        int countSNR = 0, countRSSI = 0;
+
+        for (var p : dto.points) {
+            if (p.sNR != 0.0) countSNR ++;
+            if (p.rSSI != 0.0) countRSSI ++;
+            avSNR += p.sNR;
+            avRSSI += p.rSSI;
+        }
+        if (countSNR != 0.0) avSNR = avSNR / countSNR;
+        if (countRSSI != 0.0) avRSSI = avRSSI / countRSSI;
+
         return new CoordinatesDto(
                 dto.gpsExt.lat,
                 dto.gpsExt.lon,
-                dto.points.stream().map(p -> new Point(p.sNR, p.rSSI)).toList()
+                avRSSI,
+                avSNR
         );
     }
 }

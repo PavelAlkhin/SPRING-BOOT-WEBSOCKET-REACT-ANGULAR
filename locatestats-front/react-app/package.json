@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react-stomp": "^5.1.0",
-    "sockjs": "^0.3.24",
     "@react-google-maps/api": "^2.19.2",
+    "@stomp/stompjs": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-stomp": "^5.1.0",
+    "react-use-websocket": "^3.0.0",
+    "socket.io-client": "^4.7.2",
+    "sockjs": "^0.3.24",
+    "sockjs-client": "^1.6.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
