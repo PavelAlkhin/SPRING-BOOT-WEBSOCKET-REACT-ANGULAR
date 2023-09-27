@@ -1,0 +1,8 @@
+<google-map class="google-map flex justify-center items-center relative" [options]="mapOptions" *ngIf="apiLoaded$ | async">
+    <map-marker
+            automation-id="google-map-marker"
+            #mapMarker="mapMarker"
+            [position]="marker"
+            [options]="markerOptions"
+    ></map-marker>
+</google-map>

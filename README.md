@@ -17,3 +17,15 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+
+
+# Angular 16 
+
+## Available Scripts
+
+### `npm start` or `ng serve --open`
+
+If angular will get error type command npm i net -S
+
+Runs the app in the development mode.\
+Open [http://localhost:4200](http://localhost:4200) to view it in your browser with Angular App.
