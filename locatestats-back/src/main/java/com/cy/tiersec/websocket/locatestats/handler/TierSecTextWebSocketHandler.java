@@ -26,7 +26,9 @@ public class TierSecTextWebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws IOException {
         tierSecSessionManager.addSession(session);
         session.sendMessage(new TextMessage(objectMapper.writeValueAsString(
-//                Map.of("STATUS", "OK", "sessionId", session.getId())
+                // при первом подключении можно передавать на клиента ид сессии и запонмать там ее
+                // сейчас для имитации передаются координаты. В самом простейшем виде.
+                // Map.of("STATUS", "OK", "sessionId", session.getId())
                 new CoordinatesDto(48.8588548, 2.2945, -28.0, 63.0)
         )));
         logger.info("Connection with id {} established with server!", session.getId());
