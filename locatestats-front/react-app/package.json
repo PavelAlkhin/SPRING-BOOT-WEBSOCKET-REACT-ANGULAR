@@ -5,6 +5,7 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.2",
     "@stomp/stompjs": "^7.0.0",
+    "angular-sockjs": "^0.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
