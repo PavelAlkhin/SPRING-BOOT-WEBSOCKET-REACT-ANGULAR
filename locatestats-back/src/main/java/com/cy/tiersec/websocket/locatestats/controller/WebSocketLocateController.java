@@ -5,8 +5,6 @@ import com.cy.tiersec.websocket.locatestats.dto.addmany.response.AddManyResponse
 import com.cy.tiersec.websocket.locatestats.dto.websocket.CoordinatesDto;
 import com.cy.tiersec.websocket.locatestats.service.TierSecSessionManager;
 import com.cy.tiersec.websocket.locatestats.service.WebsocketServiceClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;

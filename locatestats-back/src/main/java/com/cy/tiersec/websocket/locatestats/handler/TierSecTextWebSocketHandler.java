@@ -3,6 +3,7 @@ package com.cy.tiersec.websocket.locatestats.handler;
 import com.cy.tiersec.websocket.locatestats.dto.websocket.CoordinatesDto;
 import com.cy.tiersec.websocket.locatestats.service.TierSecSessionManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class TierSecTextWebSocketHandler extends TextWebSocketHandler {
     final Logger logger = LoggerFactory.getLogger(TierSecTextWebSocketHandler.class);
 
     @Override
-    public void afterConnectionEstablished(WebSocketSession session) throws IOException {
+    public void afterConnectionEstablished(@NonNull WebSocketSession session) throws IOException {
         tierSecSessionManager.addSession(session);
         session.sendMessage(new TextMessage(objectMapper.writeValueAsString(
                 // при первом подключении можно передавать на клиента ид сессии и запонмать там ее
@@ -35,7 +36,7 @@ public class TierSecTextWebSocketHandler extends TextWebSocketHandler {
     }
 
     @Override
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus status){
+    public void afterConnectionClosed(@NonNull WebSocketSession session, @NonNull CloseStatus status){
         tierSecSessionManager.removeSession(session);
         logger.info("Session with id {} was removed!", session.getId());
     }
