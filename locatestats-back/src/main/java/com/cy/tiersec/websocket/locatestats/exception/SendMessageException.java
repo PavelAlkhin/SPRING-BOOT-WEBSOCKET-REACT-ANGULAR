@@ -8,6 +8,6 @@ public class SendMessageException extends RuntimeException {
 
     public SendMessageException(String errorMessage, Object message) {
         super(errorMessage);
-        logger.error(errorMessage);
+        logger.error("Error {} with sending message {}", errorMessage, message.toString());
     }
 }

@@ -19,15 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(maxAge = 3600)
 public class WebSocketLocateController {
-    final Logger logger = LoggerFactory.getLogger(WebSocketLocateController.class);
-
     private final SimpMessagingTemplate template;
 
     private final WebsocketServiceClient websocketServiceClient;
 
     private final TierSecSessionManager tierSecSessionManager;
 
-    public WebSocketLocateController(SimpMessagingTemplate template, WebsocketServiceClient websocketServiceClient, TierSecSessionManager tierSecSessionManager) {
+    public WebSocketLocateController(
+            SimpMessagingTemplate template,
+            WebsocketServiceClient websocketServiceClient,
+            TierSecSessionManager tierSecSessionManager
+    ) {
         this.template = template;
         this.websocketServiceClient = websocketServiceClient;
         this.tierSecSessionManager = tierSecSessionManager;
@@ -41,14 +43,16 @@ public class WebSocketLocateController {
     //для angular, в котором используется Websocket....
     @PostMapping("/addmany")
     public ResponseEntity<AddManyResponseDto> sendMessage(@RequestBody AddManyRequestDto dto) {
-        AddManyResponseDto responseDto = websocketServiceClient.getResponseDto(dto);
-        System.out.println(responseDto);
+
         CoordinatesDto responseToSocket = websocketServiceClient.getResponseToSocket(dto);
+
+        // отправляем по http для React-app
         template.convertAndSend("/topic/message", responseToSocket);
 
+        // отправляем по ws для Angular
         tierSecSessionManager.sendBroadCastMessage(responseToSocket);
 
-        return ResponseEntity.ok(responseDto);
+        return ResponseEntity.ok(websocketServiceClient.getResponseDto(dto));
     }
 
     @MessageMapping("/test-connection")

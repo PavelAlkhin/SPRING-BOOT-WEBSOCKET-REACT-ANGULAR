@@ -8,6 +8,6 @@ public class MessageCastException extends RuntimeException {
 
     public MessageCastException(String errorMessage, Object message) {
         super(errorMessage);
-        logger.error(errorMessage);
+        logger.error("Error {} with cast message {}", errorMessage, message.toString());
     }
 }
